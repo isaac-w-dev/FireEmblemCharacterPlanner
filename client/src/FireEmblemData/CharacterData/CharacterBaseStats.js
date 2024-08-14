@@ -1,0 +1,55 @@
+class characterBaseStats {
+    constructor(hp, str, mag, dex, spd, def, res, lck, bld, mov) {
+        this.hp = hp;
+        this.str = str;
+        this.mag = mag;
+        this.dex = dex;
+        this.spd = spd;
+        this.def = def;
+        this.res = res;
+        this.lck = lck;
+        this.bld = bld;
+        this.mov = mov;
+    }
+}
+export const alearBaseStats = new characterBaseStats(22, 6, 0, 5, 7, 5, 3, 5, 4, 4);
+export const vanderBaseStats = new characterBaseStats(40, 11, 5, 10, 8, 10, 8, 6, 8, 6);
+export const clanneBaseStats = new characterBaseStats(19, 1, 8, 11, 9, 4, 7, 4, 4, 4);
+export const frammeBaseStats = new characterBaseStats(18, 3, 5, 8, 7, 4, 8, 5, 3, 4);
+export const alfredBaseStats = new characterBaseStats(27, 9, 2, 10, 6, 8, 5, 8, 6, 5);
+export const etieBaseStats = new characterBaseStats(21, 10, 0, 11, 6, 3, 2, 8, 4, 4);
+export const boucheronBaseStats = new characterBaseStats(29, 10, 0, 8, 7, 6, 3, 5, 9, 4);
+export const celineBaseStats = new characterBaseStats(22, 7, 9, 9, 10, 5, 7, 11, 4, 4);
+export const chloeBaseStats = new characterBaseStats(26, 8, 4, 13, 13, 5, 9, 10, 5, 5);
+export const louisBaseStats = new characterBaseStats(30, 13, 0, 11, 3, 16, 1, 4, 8, 4);
+export const yunakaBaseStats = new characterBaseStats(25, 8, 5, 14, 12, 9, 7, 8, 5, 5);
+export const alcrystBaseStats = new characterBaseStats(28, 11, 2, 17, 12, 8, 5, 8, 6, 4);
+export const citrinneBaseStats = new characterBaseStats(24, 2, 15, 13, 10, 3, 12, 10, 4, 4);
+export const lapisBaseStats = new characterBaseStats(26, 11, 2, 12, 14, 7, 6, 7, 5, 4);
+export const diamantBaseStats = new characterBaseStats(32, 13, 3, 13, 13, 10, 6, 10, 9, 4);
+export const amberBaseStats = new characterBaseStats(31, 15, 2, 13, 11, 9, 3, 9, 8, 5);
+export const jadeBaseStats = new characterBaseStats(33, 14, 4, 14, 5, 18, 6, 5, 8, 4);
+export const ivyBaseStats = new characterBaseStats(32, 7, 17, 15, 13, 12, 15, 4, 7, 5);
+export const kagetsuBaseStats = new characterBaseStats(35, 17, 5, 22, 22, 14, 10, 17, 9, 5);
+export const zelkovBaseStats = new characterBaseStats(35, 15, 3, 19, 19, 14, 5, 7, 9, 5);
+export const fogadoBaseStats = new characterBaseStats(33, 12, 7, 17, 18, 10, 11, 8, 8, 5);
+export const pandreoBaseStats = new characterBaseStats(34, 7, 16, 18, 17, 8, 22, 14, 8, 5);
+export const bunetBaseStats = new characterBaseStats(41, 15, 5, 15, 9, 20, 8, 13, 11, 6);
+export const timerraBaseStats = new characterBaseStats(35, 14, 6, 17, 18, 16, 8, 10, 5, 4);
+export const pannetteBaseStats = new characterBaseStats(46, 25, 3, 19, 13, 11, 7, 11, 11, 5);
+export const merrinBaseStats = new characterBaseStats(36, 15, 10, 21, 21, 12, 12, 14, 9, 6);
+export const hortensiaBaseStats = new characterBaseStats(27, 5, 12, 21, 19, 6, 23, 17, 5, 5);
+export const seadallBaseStats = new characterBaseStats(33, 12, 4, 15, 16, 10, 10, 11, 8, 5);
+export const rosadoBaseStats = new characterBaseStats(44, 16, 7, 19, 21, 15, 11, 8, 8, 6);
+export const goldmaryBaseStats = new characterBaseStats(40, 17, 2, 18, 20, 20, 12, 13, 9, 5);
+export const lindonBaseStats = new characterBaseStats(38, 8, 19, 21, 19, 12, 21, 8, 10, 5);
+export const saphirBaseStats = new characterBaseStats(51, 24, 2, 23, 19, 19, 9, 15, 15, 5);
+export const veyleBaseStats = new characterBaseStats(35, 20, 26, 24, 23, 17, 29, 18, 7, 5);
+export const mauvierBaseStats = new characterBaseStats(51, 21, 23, 25, 22, 26, 24, 16, 12, 6);
+export const annaBaseStats = new characterBaseStats(29, 10, 2, 9, 7, 4, 5, 3, 7, 4);
+export const jeanBaseStats = new characterBaseStats(19, 4, 5, 10, 7, 4, 8, 3, 3, 4);
+export const nelBaseStats = new characterBaseStats(35, 14, 12, 17, 19, 14, 15, 16, 8, 5);
+export const rafalBaseStats = new characterBaseStats(39, 19, 7, 17, 16, 20, 11, 12, 9, 5);
+export const zelestiaBaseStats = new characterBaseStats(38, 17, 18, 16, 20, 15, 19, 7, 9, 6);
+export const gregoryBaseStats = new characterBaseStats(35, 10, 25, 13, 13, 13, 25, 9, 8, 5);
+export const madelineBaseStats = new characterBaseStats(46, 24, 6, 12, 7, 27, 9, 9, 13, 4);

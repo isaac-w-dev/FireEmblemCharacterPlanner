@@ -1,0 +1,53 @@
+class characterMaxStats {
+    constructor(str,mag,dex,spd,def,res,lck) {
+        this.str = str;
+        this.mag = mag;
+        this.dex = dex;
+        this.spd = spd;
+        this.def = def;
+        this.res = res;
+        this.lck = lck;
+        this.total = str + mag + dex + spd + def + res + lck;
+    }
+}
+export const alearMaxStats = new characterMaxStats(1,0,1,1,0,0,0);
+export const vanderMaxStats= new characterMaxStats(1,-1,1,-2,3,-2,0);
+export const clanneMaxStats = new characterMaxStats(1,-1,2,2,-2,-1,0);
+export const frammerMaxStats = new characterMaxStats(0,1,-1,2,-1,-1,1);
+export const alfredMaxStats = new characterMaxStats(2,-1,1,0,2,-2,-1);
+export const etieMaxStats = new characterMaxStats(2,-2,2,0,0,-1,-1);
+export const boucheronMaxStats = new characterMaxStats(1,0,2,2,-2,0,-2);
+export const celineMaxStats = new characterMaxStats(-2,2,-2,1,-3,1,3);
+export const chloeMaxStats = new characterMaxStats(-2,1,0,3,-1,0,0);
+export const louisMaxStats = new characterMaxStats(1,0,-1,-2,3,-2,1);
+export const yunakaMaxStats = new characterMaxStats(-1,0,1,2,-2,2,-1);
+export const alcrystMaxStats = new characterMaxStats(1,-1,3,0,1,-2,-1);
+export const citrinneMaxStats = new characterMaxStats(-1,3,0,-1,-2,2,0);
+export const lapisMaxStats = new characterMaxStats(-2,-2,2,3,0,0,0);
+export const diamantMaxStats = new characterMaxStats(2,-1,-1,0,2,-1,0);
+export const amberMaxStats = new characterMaxStats(2,-1,-1,-1,1,-1,1);
+export const jadeMaxStats = new characterMaxStats(1,-1,0,0,2,0,-1);
+export const ivyMaxStats = new characterMaxStats(0,2,-2,0,2,2,-3);
+export const kagetsuMaxStats = new characterMaxStats(-1,-1,2,2,0,-2,1);
+export const zelkovMaxStats = new characterMaxStats(0,-1,2,0,0,-1,1);
+export const fogadoMaxStats = new characterMaxStats(-1,-1,0,3,-1,1,0);
+export const pandreoMaxStats = new characterMaxStats(-3,2,0,-1,-2,3,2);
+export const bunetMaxStats = new characterMaxStats(1,-3,1,0,2,-1,1);
+export const timerraMaxStats = new characterMaxStats(-1,-1,3,0,2,-3,1);
+export const panneteMaxStats = new characterMaxStats(3,-1,0,0,0,-1,0);
+export const merrinMaxStats = new characterMaxStats(-1,-1,1,2,-1,0,1);
+export const hortensiaMaxStats = new characterMaxStats(-2,0,0,1,-3,3,2);
+export const seadallMaxStats = new characterMaxStats(0,-2,-1,2,0,0,2);
+export const rosadoMaxStats = new characterMaxStats(3,-2,1,0,1,-2,0);
+export const goldmaryMaxStats = new characterMaxStats(1,-3,0,0,2,-1,2);
+export const lindonMaxStats = new characterMaxStats(0,2,-1,0,-2,2,0);
+export const saphirMaxStats = new characterMaxStats(2,-2,0,1,1,-2,0);
+export const veyleMaxStats = new characterMaxStats(0,3,0,-1,0,3,-2);
+export const mauvierMaxStats = new characterMaxStats(1,2,1,-2,1,1,-2);
+export const annaMaxStats = new characterMaxStats(0,1,1,1,-2,-1,1);
+export const jeanMaxStats = new characterMaxStats(0,2,-1,-1,0,0,1);
+export const nelMaxStats = new characterMaxStats(0,0,0,0,0,0,0);
+export const rafalMaxStats = new characterMaxStats(0,0,0,0,0,0,0);
+export const zelestiaMaxStats = new characterMaxStats(0,1,0,2,1,1,-3);
+export const gregoryMaxStats = new characterMaxStats(-2,3,-2,-2,0,3,2);
+export const madelineMaxStats = new characterMaxStats(3,0,-2,-2,3,-1,0);
