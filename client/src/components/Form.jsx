@@ -1,29 +1,23 @@
 import React, { useState } from 'react';
 import { createCharacter, updateOneCharacter } from '../services/CharacterService.jsx';
 import { useParams, useNavigate } from 'react-router-dom';
-import characterData from '../FireEmblemData/CharacterData/Characters.js';
+import CharacterData from '../FireEmblemData/CharacterData/Characters.js';
 import classInfo from '../FireEmblemData/ClassData/Classes.js';
 import { changeHandler } from '../functions/FormFunctions.jsx';
+import { useEffect } from 'react';
 const Form = (props) => {
     let { page } = props;
     const { characterInstance } = props;
     const { setCharacterInstance } = props;
     const navigate = useNavigate();
     const { id } = useParams();
-    const unitData = characterData;
+    const unitData = CharacterData;
     const unitClassData = classInfo;
     const [errors, setErrors] = useState({});
     const { formErrors } = props;
     const { setFormErrors } = props;
     const [hardCodedCharacter, setHardCodedCharacter] = useState({});
     const [characterLoaded, setCharacterLoaded] = useState(false);
-    // const unit = CharacterData.filter(c => c.name == character.name);
-    // useEffect(() => {
-    //     if (unit.length == 1) {
-    //         setHardCodedCharacter(unit[0]);
-    //         setCharacterLoaded(true);
-    //     }
-    // }, [unit[0]])
     const submitHandler = (e) => {
         e.preventDefault();
         if (page == 'edit') {
@@ -55,6 +49,13 @@ const Form = (props) => {
                 });
         }
     }
+    const unit = CharacterData.filter(c => c.name == characterInstance.name);
+    useEffect(() => {
+        if (unit.length == 1) {
+            setHardCodedCharacter(unit[0]);
+            setCharacterLoaded(true);
+        }
+    }, [unit[0]])
     const validateForm = () => {
         console.log(Object.values(formErrors))
         return Object.values(formErrors).every(value => value === '')
@@ -100,7 +101,22 @@ const Form = (props) => {
                     <label className='form-label'>Class:  </label>
                     {
                         characterLoaded ?
-                            <p></p>
+                            < select
+                                name="class"
+                                id="pClass"
+                                value={characterInstance.class}
+                                onChange={(e) => changeHandler(e, formErrors, setFormErrors, characterInstance, setCharacterInstance)}>
+                                <option value="" disabled>
+                                    --Select Class--
+                                </option>
+                                {
+                                    hardCodedCharacter.potentialClasses.map((pClass, index) => (
+                                        <option key={index} value={pClass.name}>
+                                            {pClass.name}
+                                        </option>
+                                    ))
+                                }
+                            </select>
                             :
                             < select
                                 name="class"
@@ -111,13 +127,6 @@ const Form = (props) => {
                                     --Select Class--
                                 </option>
                                 {
-                                    // characterLoaded ?
-                                    //     hardCodedCharacter.potentialClasses.map((pClass, index) => (
-                                    //         <option key={index} value={pClass}>
-                                    //             {pClass.name}
-                                    //         </option>
-                                    //     ))}
-                                    //     :
                                     unitClassData.map((classData, index) => (
                                         <option key={index} value={classData.name}>
                                             {classData.name}
