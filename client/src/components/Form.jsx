@@ -15,7 +15,15 @@ const Form = (props) => {
     const [errors, setErrors] = useState({});
     const { formErrors } = props;
     const { setFormErrors } = props;
-
+    const [hardCodedCharacter, setHardCodedCharacter] = useState({});
+    const [characterLoaded, setCharacterLoaded] = useState(false);
+    // const unit = CharacterData.filter(c => c.name == character.name);
+    // useEffect(() => {
+    //     if (unit.length == 1) {
+    //         setHardCodedCharacter(unit[0]);
+    //         setCharacterLoaded(true);
+    //     }
+    // }, [unit[0]])
     const submitHandler = (e) => {
         e.preventDefault();
         if (page == 'edit') {
@@ -90,22 +98,35 @@ const Form = (props) => {
                 </div>
                 <div>
                     <label className='form-label'>Class:  </label>
-                    {<select
-                        name="class"
-                        id="class"
-                        value={characterInstance.class}
-                        onChange={(e) => changeHandler(e, formErrors, setFormErrors, characterInstance, setCharacterInstance)}>
-                        <option value="" disabled>
-                            --Select Class--
-                        </option>
-                        {
-                            unitClassData.map((classData, index) => (
-                                <option key={index} value={classData.name}>
-                                    {classData.name}
+                    {
+                        characterLoaded ?
+                            <p></p>
+                            :
+                            < select
+                                name="class"
+                                id="class"
+                                value={characterInstance.class}
+                                onChange={(e) => changeHandler(e, formErrors, setFormErrors, characterInstance, setCharacterInstance)}>
+                                <option value="" disabled>
+                                    --Select Class--
                                 </option>
-                            ))
-                        }
-                    </select>}
+                                {
+                                    // characterLoaded ?
+                                    //     hardCodedCharacter.potentialClasses.map((pClass, index) => (
+                                    //         <option key={index} value={pClass}>
+                                    //             {pClass.name}
+                                    //         </option>
+                                    //     ))}
+                                    //     :
+                                    unitClassData.map((classData, index) => (
+                                        <option key={index} value={classData.name}>
+                                            {classData.name}
+                                        </option>
+                                    ))
+                                }
+                            </select>
+
+                    }
                     {
                         formErrors ?
                             <p className='text-danger'>{formErrors.class}</p>
@@ -343,7 +364,7 @@ const Form = (props) => {
                     }
                 </div>
                 <button type='submit' disabled={!validateForm()}>Submit</button>
-            </form>
+            </form >
         </>
     )
 }
