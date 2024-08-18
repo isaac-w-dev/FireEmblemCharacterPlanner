@@ -27,9 +27,9 @@ const CharacterTable = () => {
                         <td>Dex: </td>
                         <td>Luck: </td>
                         <td>Spd: </td>
+                        <td>Bld: </td>
                         <td>Internal Level: </td>
                         <td>Level: </td>
-                        <td>Gender: </td>
                         <td>Info: </td>
                         <td>Edit:</td>
                     </tr>
@@ -48,9 +48,9 @@ const CharacterTable = () => {
                                 <td>{character.dex}</td>
                                 <td>{character.luck}</td>
                                 <td>{character.spd}</td>
+                                <td>{character.bld}</td>
                                 <td>{character.internalLevel}</td>
                                 <td>{character.level}</td>
-                                <td>{character.isMale ? "Male" : "Female"}</td>
                                 <td><Link className='btn btn-secondary text-white' to={`character/${character._id}/details`}>More Info</Link></td>
                                 <td><Link className='btn btn-secondary text-white' to={`character/${character._id}/edit`}>Edit {character.name}</Link></td>
                             </tr>

@@ -51,6 +51,7 @@ const Form = (props) => {
     }
     const unit = CharacterData.filter(c => c.name == characterInstance.name);
     useEffect(() => {
+        setCharacterLoaded(false);
         if (unit.length == 1) {
             setHardCodedCharacter(unit[0]);
             setCharacterLoaded(true);
@@ -350,24 +351,21 @@ const Form = (props) => {
                     }
                 </div>
                 <div>
-                    <label className='form-label'>Gender: {characterInstance.isMale ? "Male" : "Female"}</label>
-                    <input
-                        type="checkbox"
-                        name="isMale"
-                        onChange={(e) => setCharacterInstance((characterInstance) => ({
-                            ...characterInstance, [e.target.name]: !e.target.checked
-                        }
-                        ))}
-                        value={characterInstance.isMale} />
+                    <label className='form-label'>Bld: </label>
+                    <input className='form-control'
+                        type="number"
+                        name="bld"
+                        onChange={(e) => changeHandler(e, formErrors, setFormErrors, characterInstance, setCharacterInstance)}
+                        value={characterInstance.bld} />
                     {
                         formErrors ?
-                            <p className='text-danger'>{formErrors.isMale}</p>
+                            <p className='text-danger'>{formErrors.bld}</p>
                             :
                             null
                     }
                     {
-                        errors.isMale ?
-                            <p className='text-danger'>{errors.isMale.message}</p>
+                        errors.hp ?
+                            <p className='text-danger'>{errors.bld.message}</p>
                             :
                             null
                     }

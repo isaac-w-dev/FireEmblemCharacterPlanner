@@ -3,8 +3,9 @@ import * as characterGrowthRate from "./CharacterGrowths";
 import * as characterMaxStats from "./CharacterMaximumStats";
 import * as characterBaseStats from "./CharacterBaseStats";
 import * as availableClasses from "./AvailableClasses";
+// import * as characterImages from "./CharacterImages"
 class character {
-    constructor(name, baseClass, isMale, growthRate, characterStatCap, baseStats, baseLevel, baseInternalLevel, potentialClasses) {
+    constructor(name, baseClass, isMale, growthRate, characterStatCap, baseStats, baseLevel, baseInternalLevel, potentialClasses, src) {
         this.name = name;
         this.baseClass = baseClass;
         this.isMale = isMale;
@@ -16,6 +17,16 @@ class character {
         this.potentialClasses = potentialClasses;
         //this.proficiency = proficiency;
         // this.personalSkill = personalSkill;
+        // function generateImg(src, width, height, name)
+        // {
+        //     const unitImage = new Image();
+        //     unitImage.src = src;
+        //     unitImage.width = width;
+        //     unitImage.height = height;
+        //     unitImage.alt = `Image of ${name}` ;
+        //     unitImage.title = name;
+        // }
+        // generateImg(src, 5, 5, name)
     }
 }
 export const AlearM = new character("Alear (M)", classInfo.dragonChild, true, characterGrowthRate.alearGrowths, characterMaxStats.alearMaxStats, characterBaseStats.alearBaseStats, 1, 1, availableClasses.alearM)

@@ -40,7 +40,6 @@ const DisplayInfo = () => {
             <div className='text-white fs-2'>
                 <p>Name: {character.name}</p>
                 <p>Class: {character.class}</p>
-                <p>Gender: {character.isMale ? "Male" : "Female"}</p>
                 <p>Level: {character.level}</p>
                 <p>Internal Level: {character.internalLevel}</p>
                 <p>HP: {character.hp}</p>
@@ -51,6 +50,7 @@ const DisplayInfo = () => {
                 <p>Dex: {character.dex}</p>
                 <p>Luck: {character.luck}</p>
                 <p>Spd: {character.spd}</p>
+                <p>Bld: {character.bld}</p>
                 <div className='d-flex flex-column'>
                     <table className='table table-striped table-light'>
                         <thead>

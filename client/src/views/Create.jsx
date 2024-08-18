@@ -29,6 +29,7 @@ const Create = () => {
         dex: "Dex stat is required",
         luck: "Luck stat is required",
         spd: "Speed stat is required",
+        bld: "Build stat is required",
         internalLevel: "Internal Level is required",
         level: "Level is required"
     });

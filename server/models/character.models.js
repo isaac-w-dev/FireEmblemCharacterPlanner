@@ -58,6 +58,12 @@ const characterSchema = new Schema({
         required: [true, 'Spd is required'],
         max: [99, "Speed stat can't be greater than 99"]
     },
+    bld:
+    {
+        type: Number,
+        required: [true, 'Build is required'],
+        max: [99, "Build stat can't be greater than 99"]
+    },
     internalLevel: {
         type: Number,
         required: [true, "Internal Level is required"],
@@ -70,11 +76,6 @@ const characterSchema = new Schema({
         required: [true, "Internal Level is required"],
         min: [1, "Minimum internal level is 1"],
         max: [99, "Maximum internal level is 99"]
-    },
-    isMale:
-    {
-        type: Boolean,
-        required: [true, "Gender must be selected"]
     }
 }, { timestamps: true });
 const Character = model('Character', characterSchema);
