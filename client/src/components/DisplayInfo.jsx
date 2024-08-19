@@ -11,7 +11,7 @@ const DisplayInfo = () => {
     const [hardCodedClass, setHardCodedClass] = useState({})
     const [characterLoaded, setCharacterLoaded] = useState(false);
     const [classLoaded, setClassLoaded] = useState(false);
-
+    const imageContainer = document.getElementById('character-image');
     useEffect(() => {
         getOneCharacter(id)
             .then((res) => {
@@ -27,7 +27,11 @@ const DisplayInfo = () => {
             setHardCodedCharacter(unit[0]);
             setCharacterLoaded(true);
         }
+        if(hardCodedCharacter.image){
+            imageContainer.appendChild(hardCodedCharacter.image);
+        }
     }, [unit[0]])
+
     const classData = classInfo.filter(c => c.name == character.class);
     useEffect(() => {
         if (classData.length == 1) {
@@ -38,6 +42,7 @@ const DisplayInfo = () => {
     return (
         <>
             <div className='text-white fs-2'>
+                {characterLoaded && hardCodedCharacter.image ? (<div id='character-image'><img src={hardCodedCharacter.image.src} alt={hardCodedCharacter.name}/></div>) : (<p>Loading Image...</p>)}
                 <p>Name: {character.name}</p>
                 <p>Class: {character.class}</p>
                 <p>Level: {character.level}</p>

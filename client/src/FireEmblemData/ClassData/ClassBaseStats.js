@@ -64,5 +64,3 @@ export const fellChildRafalBaseStats = new classBaseStats(20, 5, 5, 5, 5, 5, 5, 
 export const melusineBaseStats = new classBaseStats(22, 7, 8, 6, 8, 6, 9, 2, 6)
 export const enchanterBaseStats = new classBaseStats(20, 5, 5, 5, 5, 5, 5, 5, 5)
 export const mageCannoneerBaseStats = new classBaseStats(20, 5, 5, 5, 5, 5, 5, 5, 5)
-
-//Testing
