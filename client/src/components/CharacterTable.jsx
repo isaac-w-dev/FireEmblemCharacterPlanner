@@ -13,8 +13,8 @@ const CharacterTable = () => {
             }, [])
     })
     return (
-        <div className='d-flex flex-column'>
-            <table className='table table-striped table-dark'>
+        <div className='d-flex flex-column table-fixed bg-slate-300 border-separate shadow'>
+            <table>
                 <thead>
                     <tr>
                         <td>Name: </td>

@@ -18,6 +18,8 @@ const Form = (props) => {
     const { setFormErrors } = props;
     const [hardCodedCharacter, setHardCodedCharacter] = useState({});
     const [characterLoaded, setCharacterLoaded] = useState(false);
+    const [classLoaded, setClassLoaded] = useState(false);
+    const [hardCodedClass, setHardCodedClass] = useState({})
     const submitHandler = (e) => {
         e.preventDefault();
         if (page == 'edit') {
@@ -57,13 +59,20 @@ const Form = (props) => {
             setCharacterLoaded(true);
         }
     }, [unit[0]])
+    const classData = classInfo.filter(c => c.name == characterInstance.class);
+    useEffect(() => {
+        if (classData.length == 1) {
+            setHardCodedClass(classData[0]);
+            setClassLoaded(true)
+        }
+    }, [classData[0]])
     const validateForm = () => {
         console.log(Object.values(formErrors))
         return Object.values(formErrors).every(value => value === '')
     }
     return (
         <>
-            <form className='w-50 mx-auto text-white'
+            <form className='w-50 mx-auto text-white bg-slate-300'
                 onSubmit={submitHandler}
             >
                 <div>
@@ -137,6 +146,108 @@ const Form = (props) => {
                             </select>
 
                     }
+                    <table>
+                        <thead>
+                            <tr>
+                                <td>Growths:</td>
+                                <td>HP:</td>
+                                <td>Str:</td>
+                                <td>Mag:</td>
+                                <td>Dex:</td>
+                                <td>Spd:</td>
+                                <td>Def:</td>
+                                <td>Res:</td>
+                                <td>Lck:</td>
+                                <td>Bld:</td>
+                                <td>Total:</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Character Growth: </td>
+                                {characterLoaded ? <td>{hardCodedCharacter.characterGrowthRate.hp}</td> : <td></td>}
+                                {characterLoaded ? <td>{hardCodedCharacter.characterGrowthRate.str}</td> : <td></td>}
+                                {characterLoaded ? <td>{hardCodedCharacter.characterGrowthRate.mag}</td> : <td></td>}
+                                {characterLoaded ? <td>{hardCodedCharacter.characterGrowthRate.dex}</td> : <td></td>}
+                                {characterLoaded ? <td>{hardCodedCharacter.characterGrowthRate.spd}</td> : <td></td>}
+                                {characterLoaded ? <td>{hardCodedCharacter.characterGrowthRate.def}</td> : <td></td>}
+                                {characterLoaded ? <td>{hardCodedCharacter.characterGrowthRate.res}</td> : <td></td>}
+                                {characterLoaded ? <td>{hardCodedCharacter.characterGrowthRate.lck}</td> : <td></td>}
+                                {characterLoaded ? <td>{hardCodedCharacter.characterGrowthRate.bld}</td> : <td></td>}
+                                {characterLoaded ? <td>{hardCodedCharacter.characterGrowthRate.total}</td> : <td></td>}
+                            </tr>
+                            {
+                                <tr>
+                                    <td>Class Growth: </td>
+                                    {classLoaded ? <td>{hardCodedClass.classGrowth.hp * hardCodedCharacter.multiplier}</td> : <td></td>}
+                                    {classLoaded ? <td>{hardCodedClass.classGrowth.str * hardCodedCharacter.multiplier}</td> : <td></td>}
+                                    {classLoaded ? <td>{hardCodedClass.classGrowth.mag * hardCodedCharacter.multiplier}</td> : <td></td>}
+                                    {classLoaded ? <td>{hardCodedClass.classGrowth.dex * hardCodedCharacter.multiplier}</td> : <td></td>}
+                                    {classLoaded ? <td>{hardCodedClass.classGrowth.spd * hardCodedCharacter.multiplier}</td> : <td></td>}
+                                    {classLoaded ? <td>{hardCodedClass.classGrowth.def * hardCodedCharacter.multiplier}</td> : <td></td>}
+                                    {classLoaded ? <td>{hardCodedClass.classGrowth.res * hardCodedCharacter.multiplier}</td> : <td></td>}
+                                    {classLoaded ? <td>{hardCodedClass.classGrowth.lck * hardCodedCharacter.multiplier}</td> : <td></td>}
+                                    {classLoaded ? <td>{hardCodedClass.classGrowth.bld * hardCodedCharacter.multiplier}</td> : <td></td>}
+                                    {classLoaded ? <td>{hardCodedClass.classGrowth.total * hardCodedCharacter.multiplier}</td> : <td></td>}
+                                </tr>
+                            }
+                            <tr>
+                                <td>Combined Growths: </td>
+                                {classLoaded && characterLoaded ? <td>{hardCodedCharacter.characterGrowthRate.hp + hardCodedClass.classGrowth.hp * hardCodedCharacter.multiplier}</td> : <td></td>}
+                                {classLoaded && characterLoaded ? <td>{hardCodedCharacter.characterGrowthRate.str + hardCodedClass.classGrowth.str * hardCodedCharacter.multiplier}</td> : <td></td>}
+                                {classLoaded && characterLoaded ? <td>{hardCodedCharacter.characterGrowthRate.mag + hardCodedClass.classGrowth.mag * hardCodedCharacter.multiplier}</td> : <td></td>}
+                                {classLoaded && characterLoaded ? <td>{hardCodedCharacter.characterGrowthRate.dex + hardCodedClass.classGrowth.dex * hardCodedCharacter.multiplier}</td> : <td></td>}
+                                {classLoaded && characterLoaded ? <td>{hardCodedCharacter.characterGrowthRate.spd + hardCodedClass.classGrowth.spd * hardCodedCharacter.multiplier}</td> : <td></td>}
+                                {classLoaded && characterLoaded ? <td>{hardCodedCharacter.characterGrowthRate.def + hardCodedClass.classGrowth.def * hardCodedCharacter.multiplier}</td> : <td></td>}
+                                {classLoaded && characterLoaded ? <td>{hardCodedCharacter.characterGrowthRate.res + hardCodedClass.classGrowth.res * hardCodedCharacter.multiplier}</td> : <td></td>}
+                                {classLoaded && characterLoaded ? <td>{hardCodedCharacter.characterGrowthRate.lck + hardCodedClass.classGrowth.lck * hardCodedCharacter.multiplier}</td> : <td></td>}
+                                {classLoaded && characterLoaded ? <td>{hardCodedCharacter.characterGrowthRate.bld + hardCodedClass.classGrowth.bld * hardCodedCharacter.multiplier}</td> : <td></td>}
+                                {classLoaded && characterLoaded ? <td>{hardCodedCharacter.characterGrowthRate.total + hardCodedClass.classGrowth.total * hardCodedCharacter.multiplier}</td> : <td></td>}
+                            </tr>
+                            <tr>
+                                <td>Caps: </td>
+                            </tr>
+                            <tr>
+                                <td>Unit Modifiers: </td>
+                                {characterLoaded ? <td>{0}</td> : <td></td>}
+                                {characterLoaded ? <td>{hardCodedCharacter.characterStatCap.str}</td> : <td></td>}
+                                {characterLoaded ? <td>{hardCodedCharacter.characterStatCap.mag}</td> : <td></td>}
+                                {characterLoaded ? <td>{hardCodedCharacter.characterStatCap.dex}</td> : <td></td>}
+                                {characterLoaded ? <td>{hardCodedCharacter.characterStatCap.spd}</td> : <td></td>}
+                                {characterLoaded ? <td>{hardCodedCharacter.characterStatCap.def}</td> : <td></td>}
+                                {characterLoaded ? <td>{hardCodedCharacter.characterStatCap.res}</td> : <td></td>}
+                                {characterLoaded ? <td>{hardCodedCharacter.characterStatCap.lck}</td> : <td></td>}
+                                {characterLoaded ? <td>{0}</td> : <td></td>}
+                                {characterLoaded ? <td>{hardCodedCharacter.characterStatCap.total}</td> : <td></td>}
+                            </tr>
+                            <tr>
+                                <td>Class Caps: </td>
+                                {classLoaded ? <td>{hardCodedClass.classCap.hp}</td> : <td></td>}
+                                {classLoaded ? <td>{hardCodedClass.classCap.str}</td> : <td></td>}
+                                {classLoaded ? <td>{hardCodedClass.classCap.mag}</td> : <td></td>}
+                                {classLoaded ? <td>{hardCodedClass.classCap.dex}</td> : <td></td>}
+                                {classLoaded ? <td>{hardCodedClass.classCap.spd}</td> : <td></td>}
+                                {classLoaded ? <td>{hardCodedClass.classCap.def}</td> : <td></td>}
+                                {classLoaded ? <td>{hardCodedClass.classCap.res}</td> : <td></td>}
+                                {classLoaded ? <td>{hardCodedClass.classCap.lck}</td> : <td></td>}
+                                {classLoaded ? <td>{hardCodedClass.classCap.bld}</td> : <td></td>}
+                                {classLoaded ? <td>{hardCodedClass.classCap.total}</td> : <td></td>}
+                            </tr>
+                            <tr>
+                                <td>Combined Caps: </td>
+                                {classLoaded ? <td>{hardCodedClass.classCap.hp}</td> : <td></td>}
+                                {classLoaded && characterLoaded ? <td>{hardCodedCharacter.characterStatCap.str + hardCodedClass.classCap.str}</td> : <td></td>}
+                                {classLoaded && characterLoaded ? <td>{hardCodedCharacter.characterStatCap.mag + hardCodedClass.classCap.mag}</td> : <td></td>}
+                                {classLoaded && characterLoaded ? <td>{hardCodedCharacter.characterStatCap.dex + hardCodedClass.classCap.dex}</td> : <td></td>}
+                                {classLoaded && characterLoaded ? <td>{hardCodedCharacter.characterStatCap.spd + hardCodedClass.classCap.spd}</td> : <td></td>}
+                                {classLoaded && characterLoaded ? <td>{hardCodedCharacter.characterStatCap.def + hardCodedClass.classCap.def}</td> : <td></td>}
+                                {classLoaded && characterLoaded ? <td>{hardCodedCharacter.characterStatCap.res + hardCodedClass.classCap.res}</td> : <td></td>}
+                                {classLoaded && characterLoaded ? <td>{hardCodedCharacter.characterStatCap.lck + hardCodedClass.classCap.lck}</td> : <td></td>}
+                                {classLoaded ? <td>{hardCodedClass.classCap.bld}</td> : <td></td>}
+                                {classLoaded && characterLoaded ? <td>{hardCodedCharacter.characterStatCap.total + hardCodedClass.classCap.total}</td> : <td></td>}
+                            </tr>
+                        </tbody>
+                    </table>
                     {
                         formErrors ?
                             <p className='text-danger'>{formErrors.class}</p>

@@ -41,7 +41,7 @@ const DisplayInfo = () => {
     }, [classData[0]])
     return (
         <>
-            <div className='text-white fs-2'>
+            <div className='text-white'>
                 {characterLoaded && hardCodedCharacter.image ? (<div id='character-image'><img src={hardCodedCharacter.image.src} alt={hardCodedCharacter.name}/></div>) : (<p>Loading Image...</p>)}
                 <p>Name: {character.name}</p>
                 <p>Class: {character.class}</p>
@@ -57,7 +57,7 @@ const DisplayInfo = () => {
                 <p>Spd: {character.spd}</p>
                 <p>Bld: {character.bld}</p>
                 <div className='d-flex flex-column'>
-                    <table className='table table-striped table-light'>
+                    <table className='table-auto'>
                         <thead>
                             <tr>
                                 <td>Stat Caps: </td>
@@ -115,26 +115,26 @@ const DisplayInfo = () => {
                             </tr>
                         </tbody>
                     </table>
-                    <table className='table table-striped table-dark'>
+                    <table className='table-auto'>
                         <thead>
                             <tr>
                                 <td>Growth Rates:</td>
-                                <td>HP</td>
-                                <td>Str</td>
-                                <td>Mag</td>
-                                <td>Dex</td>
-                                <td>Spd</td>
-                                <td>Def</td>
-                                <td>Res</td>
-                                <td>Lck</td>
-                                <td>Bld</td>
-                                <td>Total</td>
+                                <td>HP: </td>
+                                <td>Str: </td>
+                                <td>Mag: </td>
+                                <td>Dex: </td>
+                                <td>Spd: </td>
+                                <td>Def: </td>
+                                <td>Res: </td>
+                                <td>Lck: </td>
+                                <td>Bld: </td>
+                                <td>Total: </td>
                             </tr>
                         </thead>
                         <tbody>
                             {
                                 <tr>
-                                    <td>Character Growth</td>
+                                    <td>Character Growth: </td>
                                     {characterLoaded ? <td>{hardCodedCharacter.characterGrowthRate.hp}</td> : <td></td>}
                                     {characterLoaded ? <td>{hardCodedCharacter.characterGrowthRate.str}</td> : <td></td>}
                                     {characterLoaded ? <td>{hardCodedCharacter.characterGrowthRate.mag}</td> : <td></td>}
@@ -150,31 +150,31 @@ const DisplayInfo = () => {
                             }
                             {
                                 <tr>
-                                    <td>Class Growth</td>
-                                    {classLoaded ? <td>{hardCodedClass.classGrowth.hp}</td> : <td></td>}
-                                    {classLoaded ? <td>{hardCodedClass.classGrowth.str}</td> : <td></td>}
-                                    {classLoaded ? <td>{hardCodedClass.classGrowth.mag}</td> : <td></td>}
-                                    {classLoaded ? <td>{hardCodedClass.classGrowth.dex}</td> : <td></td>}
-                                    {classLoaded ? <td>{hardCodedClass.classGrowth.spd}</td> : <td></td>}
-                                    {classLoaded ? <td>{hardCodedClass.classGrowth.def}</td> : <td></td>}
-                                    {classLoaded ? <td>{hardCodedClass.classGrowth.res}</td> : <td></td>}
-                                    {classLoaded ? <td>{hardCodedClass.classGrowth.lck}</td> : <td></td>}
-                                    {classLoaded ? <td>{hardCodedClass.classGrowth.bld}</td> : <td></td>}
-                                    {classLoaded ? <td>{hardCodedClass.classGrowth.total}</td> : <td></td>}
+                                    <td>Class Growth: </td>
+                                    {classLoaded ? <td>{hardCodedClass.classGrowth.hp * hardCodedCharacter.multiplier}</td> : <td></td>}
+                                    {classLoaded ? <td>{hardCodedClass.classGrowth.str * hardCodedCharacter.multiplier}</td> : <td></td>}
+                                    {classLoaded ? <td>{hardCodedClass.classGrowth.mag * hardCodedCharacter.multiplier}</td> : <td></td>}
+                                    {classLoaded ? <td>{hardCodedClass.classGrowth.dex * hardCodedCharacter.multiplier}</td> : <td></td>}
+                                    {classLoaded ? <td>{hardCodedClass.classGrowth.spd * hardCodedCharacter.multiplier}</td> : <td></td>}
+                                    {classLoaded ? <td>{hardCodedClass.classGrowth.def * hardCodedCharacter.multiplier}</td> : <td></td>}
+                                    {classLoaded ? <td>{hardCodedClass.classGrowth.res * hardCodedCharacter.multiplier}</td> : <td></td>}
+                                    {classLoaded ? <td>{hardCodedClass.classGrowth.lck * hardCodedCharacter.multiplier}</td> : <td></td>}
+                                    {classLoaded ? <td>{hardCodedClass.classGrowth.bld * hardCodedCharacter.multiplier}</td> : <td></td>}
+                                    {classLoaded ? <td>{hardCodedClass.classGrowth.total * hardCodedCharacter.multiplier}</td> : <td></td>}
                                 </tr>
                             }
                             <tr>
-                                <td>Combined Growths</td>
-                                {classLoaded && characterLoaded ? <td>{hardCodedCharacter.characterGrowthRate.hp + hardCodedClass.classGrowth.hp}</td> : <td></td>}
-                                {classLoaded && characterLoaded ? <td>{hardCodedCharacter.characterGrowthRate.str + hardCodedClass.classGrowth.str}</td> : <td></td>}
-                                {classLoaded && characterLoaded ? <td>{hardCodedCharacter.characterGrowthRate.mag + hardCodedClass.classGrowth.mag}</td> : <td></td>}
-                                {classLoaded && characterLoaded ? <td>{hardCodedCharacter.characterGrowthRate.dex + hardCodedClass.classGrowth.dex}</td> : <td></td>}
-                                {classLoaded && characterLoaded ? <td>{hardCodedCharacter.characterGrowthRate.spd + hardCodedClass.classGrowth.spd}</td> : <td></td>}
-                                {classLoaded && characterLoaded ? <td>{hardCodedCharacter.characterGrowthRate.def + hardCodedClass.classGrowth.def}</td> : <td></td>}
-                                {classLoaded && characterLoaded ? <td>{hardCodedCharacter.characterGrowthRate.res + hardCodedClass.classGrowth.res}</td> : <td></td>}
-                                {classLoaded && characterLoaded ? <td>{hardCodedCharacter.characterGrowthRate.lck + hardCodedClass.classGrowth.lck}</td> : <td></td>}
-                                {classLoaded && characterLoaded ? <td>{hardCodedCharacter.characterGrowthRate.bld + hardCodedClass.classGrowth.bld}</td> : <td></td>}
-                                {classLoaded && characterLoaded ? <td>{hardCodedCharacter.characterGrowthRate.total + hardCodedClass.classGrowth.total}</td> : <td></td>}
+                                <td>Combined Growths: </td>
+                                {classLoaded && characterLoaded ? <td>{hardCodedCharacter.characterGrowthRate.hp + hardCodedClass.classGrowth.hp * hardCodedCharacter.multiplier}</td> : <td></td>}
+                                {classLoaded && characterLoaded ? <td>{hardCodedCharacter.characterGrowthRate.str + hardCodedClass.classGrowth.str * hardCodedCharacter.multiplier}</td> : <td></td>}
+                                {classLoaded && characterLoaded ? <td>{hardCodedCharacter.characterGrowthRate.mag + hardCodedClass.classGrowth.mag * hardCodedCharacter.multiplier}</td> : <td></td>}
+                                {classLoaded && characterLoaded ? <td>{hardCodedCharacter.characterGrowthRate.dex + hardCodedClass.classGrowth.dex * hardCodedCharacter.multiplier}</td> : <td></td>}
+                                {classLoaded && characterLoaded ? <td>{hardCodedCharacter.characterGrowthRate.spd + hardCodedClass.classGrowth.spd * hardCodedCharacter.multiplier}</td> : <td></td>}
+                                {classLoaded && characterLoaded ? <td>{hardCodedCharacter.characterGrowthRate.def + hardCodedClass.classGrowth.def * hardCodedCharacter.multiplier}</td> : <td></td>}
+                                {classLoaded && characterLoaded ? <td>{hardCodedCharacter.characterGrowthRate.res + hardCodedClass.classGrowth.res * hardCodedCharacter.multiplier}</td> : <td></td>}
+                                {classLoaded && characterLoaded ? <td>{hardCodedCharacter.characterGrowthRate.lck + hardCodedClass.classGrowth.lck * hardCodedCharacter.multiplier}</td> : <td></td>}
+                                {classLoaded && characterLoaded ? <td>{hardCodedCharacter.characterGrowthRate.bld + hardCodedClass.classGrowth.bld * hardCodedCharacter.multiplier}</td> : <td></td>}
+                                {classLoaded && characterLoaded ? <td>{hardCodedCharacter.characterGrowthRate.total + hardCodedClass.classGrowth.total * hardCodedCharacter.multiplier}</td> : <td></td>}
                             </tr>
                         </tbody>
                     </table>
