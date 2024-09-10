@@ -8,7 +8,7 @@ const Home = () => {
         <div>
             <Nav title={'Home'} />
             <CharacterTable />
-            <Link className='btn btn-secondary' to={'/create'}>Create a character</Link>
+            <Link className="rounded-md bg-gray-400 text-white p-0.5" to={'/create'}>Add a Character</Link>
         </ div>
     )
 }

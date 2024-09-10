@@ -39,7 +39,7 @@ export const saphirSkill = new personalSkill("Will to Win", "If unit's HP is 50%
 export const veyleSkill = new personalSkill("Fell Protection", "Adjacent allies deal +1 damage and take 3 less damage.");
 export const mauvierSkill = new personalSkill("Contemplative", "If unit uses Wait without attacking or using items, grants Def +2 for 1 turn");
 export const annaSkill = new personalSkill("Make a Killing", "May obtain 500G when unit defeats a foe. Trigger %= Lck.");
-export const jeanSkill = new personalSkill("Expertise", "Doubles class growths.");
+export const jeanSkill = new personalSkill("Expertise", "Doubles class growths.    *Class growths already shown as doubled on the table");
 export const nelSkill = new personalSkill("Protective", "If foe initiates combat against Rafal, grants Crit +10 to unit for 1 turn.");
 export const rafalSkill = new personalSkill("Rivalry", "When an ally within 2 spaces defeats a foe, grants Crit +10 for 1 turn.");
 export const zelestiaSkill = new personalSkill("Friendly Boost", "When unit defeats a foe, grants Hit +20 to allies within 2 spaces for 1 turn.");

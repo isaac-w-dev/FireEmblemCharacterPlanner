@@ -41,7 +41,7 @@ const DisplayInfo = () => {
     }, [classData[0]])
     return (
         <>
-            <div className='text-white'>
+            <div id="info-card"className='text-white'>
                 <br />
                 {characterLoaded && hardCodedCharacter.image ? (<div id='character-image' className='ml-10'><img src={hardCodedCharacter.image.src} alt={hardCodedCharacter.name} /></div>) : (<p>Loading Image...</p>)}
                 <p>Name: {character.name}</p>
@@ -58,6 +58,8 @@ const DisplayInfo = () => {
                 <p>Spd: {character.spd}</p>
                 <p>Bld: {character.bld}</p>
                 {characterLoaded ? <p>Personal Skill:    {hardCodedCharacter.personalSkill.name} <br /> {hardCodedCharacter.personalSkill.description}</p> : <p>Personal Skill: Loading...</p>}
+                <br />
+                {classLoaded ? <p>Class Skill:    {hardCodedClass.skill.name ? hardCodedClass.skill.name : "N/A"} <br /> {hardCodedClass.skill.description}</p> : <p>Class Skill: Loading...</p>}
                 <br />
                 <div className='flex flex-col'>
                     <table className='table-auto'>

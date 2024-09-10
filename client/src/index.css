@@ -29,6 +29,7 @@ div{
 form{
   background-color: rgb(55, 55, 55);
   border-radius: 12px;
+  width: 525px;
 }
 html {
   display: flex;
@@ -61,4 +62,10 @@ input{
 select{
   color: black;
   border: black 1px solid;
+}
+#class{
+  width: 135px;
+}
+#info-card{
+  width: 500px;
 }

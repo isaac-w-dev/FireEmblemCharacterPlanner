@@ -61,6 +61,7 @@ const Form = (props) => {
     }, [unit[0]])
     const classData = classInfo.filter(c => c.name == characterInstance.class);
     useEffect(() => {
+        setClassLoaded(false);
         if (classData.length == 1) {
             setHardCodedClass(classData[0]);
             setClassLoaded(true)
@@ -107,45 +108,62 @@ const Form = (props) => {
                             null
                     }
                 </div>
-                <div>
-                    <label className='form-label'>Class:  </label>
+                <div className='flex flex-col justify-center'>
+                    <div>
+                        <label className='form-label'>Class:  </label>
+                        {
+                            characterLoaded ?
+                                < select
+                                    name="class"
+                                    id="pClass"
+                                    value={characterInstance.class}
+                                    onChange={(e) => changeHandler(e, formErrors, setFormErrors, characterInstance, setCharacterInstance)}>
+                                    <option value="" disabled>
+                                        --Select Class--
+                                    </option>
+                                    {
+                                        hardCodedCharacter.potentialClasses.map((pClass, index) => (
+                                            <option key={index} value={pClass.name}>
+                                                {pClass.name}
+                                            </option>
+                                        ))
+                                    }
+                                </select>
+                                :
+                                < select
+                                    name="class"
+                                    id="class"
+                                    value={characterInstance.class}
+                                    onChange={(e) => changeHandler(e, formErrors, setFormErrors, characterInstance, setCharacterInstance)}>
+                                    <option value="" disabled>
+                                        --Select Class--
+                                    </option>
+                                    {
+                                        unitClassData.map((classData, index) => (
+                                            <option key={index} value={classData.name}>
+                                                {classData.name}
+                                            </option>
+                                        ))
+                                    }
+                                </select>
+                        }
+                    </div>
                     {
-                        characterLoaded ?
-                            < select
-                                name="class"
-                                id="pClass"
-                                value={characterInstance.class}
-                                onChange={(e) => changeHandler(e, formErrors, setFormErrors, characterInstance, setCharacterInstance)}>
-                                <option value="" disabled>
-                                    --Select Class--
-                                </option>
-                                {
-                                    hardCodedCharacter.potentialClasses.map((pClass, index) => (
-                                        <option key={index} value={pClass.name}>
-                                            {pClass.name}
-                                        </option>
-                                    ))
-                                }
-                            </select>
+                        formErrors ?
+                            <p className='text-danger'>{formErrors.class}</p>
                             :
-                            < select
-                                name="class"
-                                id="class"
-                                value={characterInstance.class}
-                                onChange={(e) => changeHandler(e, formErrors, setFormErrors, characterInstance, setCharacterInstance)}>
-                                <option value="" disabled>
-                                    --Select Class--
-                                </option>
-                                {
-                                    unitClassData.map((classData, index) => (
-                                        <option key={index} value={classData.name}>
-                                            {classData.name}
-                                        </option>
-                                    ))
-                                }
-                            </select>
-
+                            null
                     }
+                    {
+                        errors.number ?
+                            <p className='text-danger'>{errors.class.message}</p>
+                            :
+                            null
+                    }
+                    <br />
+                    {characterLoaded ? <p>Personal Skill: {hardCodedCharacter.personalSkill.name}- {hardCodedCharacter.personalSkill.description}</p> : <p></p>}
+                    <br />
+                    {classLoaded ? <p>Class Skill: {hardCodedClass.skill.name ? hardCodedClass.skill.name + "-" : "N/A"} {hardCodedClass.skill.description}</p> : <p></p>}
                     <table className='m-3'>
                         <thead>
                             <tr>
@@ -248,18 +266,6 @@ const Form = (props) => {
                             </tr>
                         </tbody>
                     </table>
-                    {
-                        formErrors ?
-                            <p className='text-danger'>{formErrors.class}</p>
-                            :
-                            null
-                    }
-                    {
-                        errors.number ?
-                            <p className='text-danger'>{errors.class.message}</p>
-                            :
-                            null
-                    }
                 </div>
                 <div>
                     <label className='form-label'>Level: </label>
