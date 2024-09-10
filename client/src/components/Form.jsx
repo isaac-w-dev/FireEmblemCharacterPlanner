@@ -72,7 +72,7 @@ const Form = (props) => {
     }
     return (
         <>
-            <form className='w-50 mx-auto text-white bg-slate-300'
+            <form className='w-50 mx-auto text-white m-3 mx-3'
                 onSubmit={submitHandler}
             >
                 <div>
@@ -146,7 +146,7 @@ const Form = (props) => {
                             </select>
 
                     }
-                    <table>
+                    <table className='m-3'>
                         <thead>
                             <tr>
                                 <td>Growths:</td>

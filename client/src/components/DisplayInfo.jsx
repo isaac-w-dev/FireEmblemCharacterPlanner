@@ -27,7 +27,7 @@ const DisplayInfo = () => {
             setHardCodedCharacter(unit[0]);
             setCharacterLoaded(true);
         }
-        if(hardCodedCharacter.image){
+        if (hardCodedCharacter.image) {
             imageContainer.appendChild(hardCodedCharacter.image);
         }
     }, [unit[0]])
@@ -42,7 +42,8 @@ const DisplayInfo = () => {
     return (
         <>
             <div className='text-white'>
-                {characterLoaded && hardCodedCharacter.image ? (<div id='character-image'><img src={hardCodedCharacter.image.src} alt={hardCodedCharacter.name}/></div>) : (<p>Loading Image...</p>)}
+                <br />
+                {characterLoaded && hardCodedCharacter.image ? (<div id='character-image' className='ml-10'><img src={hardCodedCharacter.image.src} alt={hardCodedCharacter.name} /></div>) : (<p>Loading Image...</p>)}
                 <p>Name: {character.name}</p>
                 <p>Class: {character.class}</p>
                 <p>Level: {character.level}</p>
@@ -56,7 +57,9 @@ const DisplayInfo = () => {
                 <p>Luck: {character.luck}</p>
                 <p>Spd: {character.spd}</p>
                 <p>Bld: {character.bld}</p>
-                <div className='d-flex flex-column'>
+                {characterLoaded ? <p>Personal Skill:    {hardCodedCharacter.personalSkill.name} <br /> {hardCodedCharacter.personalSkill.description}</p> : <p>Personal Skill: Loading...</p>}
+                <br />
+                <div className='flex flex-col'>
                     <table className='table-auto'>
                         <thead>
                             <tr>
@@ -113,10 +116,6 @@ const DisplayInfo = () => {
                                 {classLoaded ? <td>{hardCodedClass.classCap.bld}</td> : <td></td>}
                                 {classLoaded && characterLoaded ? <td>{hardCodedCharacter.characterStatCap.total + hardCodedClass.classCap.total}</td> : <td></td>}
                             </tr>
-                        </tbody>
-                    </table>
-                    <table className='table-auto'>
-                        <thead>
                             <tr>
                                 <td>Growth Rates:</td>
                                 <td>HP: </td>
@@ -130,39 +129,32 @@ const DisplayInfo = () => {
                                 <td>Bld: </td>
                                 <td>Total: </td>
                             </tr>
-                        </thead>
-                        <tbody>
-                            {
-                                <tr>
-                                    <td>Character Growth: </td>
-                                    {characterLoaded ? <td>{hardCodedCharacter.characterGrowthRate.hp}</td> : <td></td>}
-                                    {characterLoaded ? <td>{hardCodedCharacter.characterGrowthRate.str}</td> : <td></td>}
-                                    {characterLoaded ? <td>{hardCodedCharacter.characterGrowthRate.mag}</td> : <td></td>}
-                                    {characterLoaded ? <td>{hardCodedCharacter.characterGrowthRate.dex}</td> : <td></td>}
-                                    {characterLoaded ? <td>{hardCodedCharacter.characterGrowthRate.spd}</td> : <td></td>}
-                                    {characterLoaded ? <td>{hardCodedCharacter.characterGrowthRate.def}</td> : <td></td>}
-                                    {characterLoaded ? <td>{hardCodedCharacter.characterGrowthRate.res}</td> : <td></td>}
-                                    {characterLoaded ? <td>{hardCodedCharacter.characterGrowthRate.lck}</td> : <td></td>}
-                                    {characterLoaded ? <td>{hardCodedCharacter.characterGrowthRate.bld}</td> : <td></td>}
-                                    {characterLoaded ? <td>{hardCodedCharacter.characterGrowthRate.total}</td> : <td></td>}
-                                </tr>
-
-                            }
-                            {
-                                <tr>
-                                    <td>Class Growth: </td>
-                                    {classLoaded ? <td>{hardCodedClass.classGrowth.hp * hardCodedCharacter.multiplier}</td> : <td></td>}
-                                    {classLoaded ? <td>{hardCodedClass.classGrowth.str * hardCodedCharacter.multiplier}</td> : <td></td>}
-                                    {classLoaded ? <td>{hardCodedClass.classGrowth.mag * hardCodedCharacter.multiplier}</td> : <td></td>}
-                                    {classLoaded ? <td>{hardCodedClass.classGrowth.dex * hardCodedCharacter.multiplier}</td> : <td></td>}
-                                    {classLoaded ? <td>{hardCodedClass.classGrowth.spd * hardCodedCharacter.multiplier}</td> : <td></td>}
-                                    {classLoaded ? <td>{hardCodedClass.classGrowth.def * hardCodedCharacter.multiplier}</td> : <td></td>}
-                                    {classLoaded ? <td>{hardCodedClass.classGrowth.res * hardCodedCharacter.multiplier}</td> : <td></td>}
-                                    {classLoaded ? <td>{hardCodedClass.classGrowth.lck * hardCodedCharacter.multiplier}</td> : <td></td>}
-                                    {classLoaded ? <td>{hardCodedClass.classGrowth.bld * hardCodedCharacter.multiplier}</td> : <td></td>}
-                                    {classLoaded ? <td>{hardCodedClass.classGrowth.total * hardCodedCharacter.multiplier}</td> : <td></td>}
-                                </tr>
-                            }
+                            <tr>
+                                <td>Character Growth: </td>
+                                {characterLoaded ? <td>{hardCodedCharacter.characterGrowthRate.hp}</td> : <td></td>}
+                                {characterLoaded ? <td>{hardCodedCharacter.characterGrowthRate.str}</td> : <td></td>}
+                                {characterLoaded ? <td>{hardCodedCharacter.characterGrowthRate.mag}</td> : <td></td>}
+                                {characterLoaded ? <td>{hardCodedCharacter.characterGrowthRate.dex}</td> : <td></td>}
+                                {characterLoaded ? <td>{hardCodedCharacter.characterGrowthRate.spd}</td> : <td></td>}
+                                {characterLoaded ? <td>{hardCodedCharacter.characterGrowthRate.def}</td> : <td></td>}
+                                {characterLoaded ? <td>{hardCodedCharacter.characterGrowthRate.res}</td> : <td></td>}
+                                {characterLoaded ? <td>{hardCodedCharacter.characterGrowthRate.lck}</td> : <td></td>}
+                                {characterLoaded ? <td>{hardCodedCharacter.characterGrowthRate.bld}</td> : <td></td>}
+                                {characterLoaded ? <td>{hardCodedCharacter.characterGrowthRate.total}</td> : <td></td>}
+                            </tr>
+                            <tr>
+                                <td>Class Growth: </td>
+                                {classLoaded ? <td>{hardCodedClass.classGrowth.hp * hardCodedCharacter.multiplier}</td> : <td></td>}
+                                {classLoaded ? <td>{hardCodedClass.classGrowth.str * hardCodedCharacter.multiplier}</td> : <td></td>}
+                                {classLoaded ? <td>{hardCodedClass.classGrowth.mag * hardCodedCharacter.multiplier}</td> : <td></td>}
+                                {classLoaded ? <td>{hardCodedClass.classGrowth.dex * hardCodedCharacter.multiplier}</td> : <td></td>}
+                                {classLoaded ? <td>{hardCodedClass.classGrowth.spd * hardCodedCharacter.multiplier}</td> : <td></td>}
+                                {classLoaded ? <td>{hardCodedClass.classGrowth.def * hardCodedCharacter.multiplier}</td> : <td></td>}
+                                {classLoaded ? <td>{hardCodedClass.classGrowth.res * hardCodedCharacter.multiplier}</td> : <td></td>}
+                                {classLoaded ? <td>{hardCodedClass.classGrowth.lck * hardCodedCharacter.multiplier}</td> : <td></td>}
+                                {classLoaded ? <td>{hardCodedClass.classGrowth.bld * hardCodedCharacter.multiplier}</td> : <td></td>}
+                                {classLoaded ? <td>{hardCodedClass.classGrowth.total * hardCodedCharacter.multiplier}</td> : <td></td>}
+                            </tr>
                             <tr>
                                 <td>Combined Growths: </td>
                                 {classLoaded && characterLoaded ? <td>{hardCodedCharacter.characterGrowthRate.hp + hardCodedClass.classGrowth.hp * hardCodedCharacter.multiplier}</td> : <td></td>}
@@ -179,7 +171,9 @@ const DisplayInfo = () => {
                         </tbody>
                     </table>
                 </div>
+                <br />
                 <button className='btn btn-dark' onClick={() => deleteHandler(id, navigate)}>Delete</button>
+                <br />
                 <br />
                 <Link to='/' className='btn btn-secondary'>Home</Link>
             </div >

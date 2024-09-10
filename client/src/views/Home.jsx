@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 const Home = () => {
     return (
-        <div className='bg-slate-300'>
+        <div>
             <Nav title={'Home'} />
             <CharacterTable />
             <Link className='btn btn-secondary' to={'/create'}>Create a character</Link>

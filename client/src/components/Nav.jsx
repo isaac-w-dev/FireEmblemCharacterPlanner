@@ -3,8 +3,8 @@ const Nav = (props) => {
     const { title } = props;
     return (
         <header>
-            <nav className='d-flex justify-content-around border bg-dark text-white'>
-                <div className='left'>
+            <nav className='flex justify-center bg-dark text-white'>
+                <div className=''>
                     <h1>{title}</h1>
                 </div>
             </nav>

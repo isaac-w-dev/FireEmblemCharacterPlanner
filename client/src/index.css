@@ -7,9 +7,9 @@
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light dark;
-  color: #47a7ff;
-  background-color: #050c17;
+  /* color-scheme: light dark; */
+  /* color: #47a7ff; */
+  background-color: #1a1a1a;
   display: flex;
   height: 100%;
   justify-content: center;
@@ -21,7 +21,15 @@
   background: url(../src/FireEmblemData/CharacterImages/FireEmblemBackground.png) no-repeat center fixed;
   background-size: cover;
 }
-
+div{
+  background-color: rgb(55, 55, 55);
+  border-radius: 12px;
+  margin: 5px;
+}
+form{
+  background-color: rgb(55, 55, 55);
+  border-radius: 12px;
+}
 html {
   display: flex;
   justify-content: center;
@@ -30,9 +38,27 @@ html {
 }
 
 * {
-  border: #ecedf3 1px solid;
+  /* border: #ecedf3 1px solid; */
+}
+
+table *{
+  border: white 1px solid;
 }
 
 td:first-child{
   width: 145px;
+}
+#info{
+  border: none;
+}
+#edit{
+  border: none;
+}
+input{
+  color: black;
+  border: black 1px solid;
+}
+select{
+  color: black;
+  border: black 1px solid;
 }

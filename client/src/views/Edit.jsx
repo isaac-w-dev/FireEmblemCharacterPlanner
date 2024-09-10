@@ -9,9 +9,9 @@ const Edit = () => {
     const { id } = useParams();
     const [characterInstance, setCharacterInstance] = useState({
         name: "",
+        class: "",
         level: "",
         internalLevel: "",
-        class: "",
         hp: "",
         str: "",
         mag: "",
@@ -19,7 +19,8 @@ const Edit = () => {
         spd: "",
         def: "",
         res: "",
-        luck: ""
+        luck: "",
+        bld: ""
     });
     useEffect(() => {
         getOneCharacter(id)
@@ -33,16 +34,17 @@ const Edit = () => {
     const [formErrors, setFormErrors] = useState({
         name: "",
         class: "",
+        level: "",
+        internalLevel: "",
         hp: "",
         str: "",
-        def: "",
         mag: "",
-        res: "",
         dex: "",
-        luck: "",
         spd: "",
-        internalLevel: "",
-        level: ""
+        def: "",
+        res: "",
+        luck: "",
+        bld: ""
     })
     return (
         <>

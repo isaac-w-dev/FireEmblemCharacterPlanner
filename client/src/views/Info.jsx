@@ -4,10 +4,10 @@ import Nav from '../components/Nav'
 
 const Info = () => {
     return (
-        <>
-        <Nav title={"Character Info"}/>
-        <DisplayInfo />
-        </>
+        <div>
+            <Nav title={"Character Info"} />
+            <DisplayInfo />
+        </div>
     )
 }
 

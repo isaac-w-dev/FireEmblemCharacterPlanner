@@ -13,7 +13,7 @@ const CharacterTable = () => {
             }, [])
     })
     return (
-        <div className='d-flex flex-column table-fixed bg-slate-300 border-separate shadow'>
+        <div className='flex flex-column table-fixed border-separate shadow text-white'>
             <table>
                 <thead>
                     <tr>
@@ -51,8 +51,8 @@ const CharacterTable = () => {
                                 <td>{character.bld}</td>
                                 <td>{character.internalLevel}</td>
                                 <td>{character.level}</td>
-                                <td><Link className='btn btn-secondary text-white' to={`character/${character._id}/details`}>More Info</Link></td>
-                                <td><Link className='btn btn-secondary text-white' to={`character/${character._id}/edit`}>Edit {character.name}</Link></td>
+                                <td><Link id='info'className='btn btn-secondary text-white' to={`character/${character._id}/details`}>More Info</Link></td>
+                                <td><Link id='edit'className='btn btn-secondary text-white' to={`character/${character._id}/edit`}>Edit {character.name}</Link></td>
                             </tr>
                         ))
                     }
