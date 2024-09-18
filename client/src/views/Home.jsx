@@ -8,7 +8,10 @@ const Home = () => {
         <div>
             <Nav title={'Home'} />
             <CharacterTable />
-            <Link className="rounded-md bg-gray-400 text-white p-0.5" to={'/create'}>Add a Character</Link>
+            <div className="flex justify-evenly">
+                <Link className="rounded-md bg-gray-400 text-white p-0.5" to={'/create'}>Add a Character</Link>
+                <Link className="rounded-md bg-gray-400 text-white p-0.5 space-around" to={'/comparison'}>Comparison Page</Link>
+            </div>
         </ div>
     )
 }

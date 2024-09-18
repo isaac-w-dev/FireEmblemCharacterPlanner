@@ -49,11 +49,11 @@ import zelestiaImage from '../CharacterImages/Zelestia.png';
 import zelkovImage from '../CharacterImages/Zelkov.png';
 
 class character {
-    constructor(name, baseClass, isMale, growthRate, characterStatCap, baseStats, baseLevel, baseInternalLevel, potentialClasses, src, proficiency, personalSkill, multiplier) {
+    constructor(name, baseClass, isMale, characterGrowthRate, characterStatCap, baseStats, baseLevel, baseInternalLevel, potentialClasses, src, proficiency, personalSkill, multiplier) {
         this.name = name;
         this.baseClass = baseClass;
         this.isMale = isMale;
-        this.characterGrowthRate = growthRate;
+        this.characterGrowthRate = characterGrowthRate;
         this.characterStatCap = characterStatCap;
         this.baseStats = baseStats;
         this.baseLevel = baseLevel;

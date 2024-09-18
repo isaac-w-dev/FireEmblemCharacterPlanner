@@ -16,9 +16,9 @@ import * as weaknesses from './ClassWeaknesses.js';
 import * as proficiencies from './ClassProficiencies.js';
 import * as skills from './ClassSkills.js';
 class classData {
-    constructor(name, growthRate, classCap, baseStats, type, weaknesses, proficiencies, skill) {
+    constructor(name, classGrowth, classCap, baseStats, type, weaknesses, proficiencies, skill) {
         this.name = name;
-        this.classGrowth = growthRate;
+        this.classGrowth = classGrowth;
         this.classCap = classCap;
         this.baseStats = baseStats;
         this.type = type;
