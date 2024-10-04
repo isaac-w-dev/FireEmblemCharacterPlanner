@@ -4,6 +4,7 @@ import CharacterData from '../FireEmblemData/CharacterData/Characters.js';
 const UnitComparisonCard = (props) => {
   const { character } = props;
   const { setCharacter } = props;
+  const handleChange = props;
   const unitData = CharacterData;
   const classData = classInfo;
   const [characterLoaded, setCharacterLoaded] = useState(false);
@@ -28,7 +29,7 @@ const UnitComparisonCard = (props) => {
       setCharacterLoaded(true);
     }
   }, [unit[0]])
-  useEffect(() => {
+  useEffect(() => { 
     setClassLoaded(false);
     if (unitClass.length == 1) {
       setHardCodedClass(unitClass[0]);
@@ -40,6 +41,19 @@ const UnitComparisonCard = (props) => {
       <div id="non-table-info" className='flex flex-col'>
         <div id="char-and-class" className='flex flex-row justify-around'>
           <div id="char-selector"><p>{character.name}</p></div>
+          {/* <select
+            name="name"
+            id="unitName"
+            value={character.name}>
+            <option value=''>{character.name}</option>
+            {
+              classData.map((characterData, index) => (
+                <option key={index} value={characterData.name}>
+                  {characterData.name}
+                </option>
+              ))
+            }
+          </select> */}
           <div id="class-selector"><p>{character.class}</p></div>
         </div>
         <div id="skills" className='flex flex-row'>

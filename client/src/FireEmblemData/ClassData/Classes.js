@@ -16,7 +16,7 @@ import * as weaknesses from './ClassWeaknesses.js';
 import * as proficiencies from './ClassProficiencies.js';
 import * as skills from './ClassSkills.js';
 class classData {
-    constructor(name, classGrowth, classCap, baseStats, type, weaknesses, proficiencies, skill) {
+    constructor(name, classGrowth, classCap, baseStats, type, weaknesses, proficiencies, skill, description) {
         this.name = name;
         this.classGrowth = classGrowth;
         this.classCap = classCap;
@@ -25,6 +25,7 @@ class classData {
         this.weaknesses = weaknesses;
         this.proficiencies = proficiencies;
         this.skill = skill;
+        this.description = description;
     }
 }
 export const dragonChild = new classData("Dragon Child", dragonChildGrowths, dragonChildCaps, dragonChildBaseStats, types.draconic, weaknesses.dragon, proficiencies.swordUser, false);

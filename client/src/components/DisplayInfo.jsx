@@ -41,7 +41,7 @@ const DisplayInfo = () => {
     }, [classData[0]])
     return (
         <>
-            <div id="info-card"className='text-white'>
+            <div id="info-card" className='text-white'>
                 <br />
                 {characterLoaded && hardCodedCharacter.image ? (<div id='character-image' className='ml-10'><img src={hardCodedCharacter.image.src} alt={hardCodedCharacter.name} /></div>) : (<p>Loading Image...</p>)}
                 <p>Name: {character.name}</p>
@@ -62,7 +62,7 @@ const DisplayInfo = () => {
                 {classLoaded ? <p>Class Skill:    {hardCodedClass.skill.name ? hardCodedClass.skill.name : "N/A"} <br /> {hardCodedClass.skill.description}</p> : <p>Class Skill: Loading...</p>}
                 <br />
                 <div className='flex flex-col'>
-                    <table className='table-auto'>
+                    <table className='table-auto m-3'>
                         <thead>
                             <tr>
                                 <td>Stat Caps: </td>
@@ -118,6 +118,11 @@ const DisplayInfo = () => {
                                 {classLoaded ? <td>{hardCodedClass.classCap.bld}</td> : <td></td>}
                                 {classLoaded && characterLoaded ? <td>{hardCodedCharacter.characterStatCap.total + hardCodedClass.classCap.total}</td> : <td></td>}
                             </tr>
+                        </tbody>
+                    </table>
+                    <br />
+                    <table className='m-3'>
+                        <thead>
                             <tr>
                                 <td>Growth Rates:</td>
                                 <td>HP: </td>
@@ -131,6 +136,8 @@ const DisplayInfo = () => {
                                 <td>Bld: </td>
                                 <td>Total: </td>
                             </tr>
+                        </thead>
+                        <tbody>
                             <tr>
                                 <td>Character Growth: </td>
                                 {characterLoaded ? <td>{hardCodedCharacter.characterGrowthRate.hp}</td> : <td></td>}
