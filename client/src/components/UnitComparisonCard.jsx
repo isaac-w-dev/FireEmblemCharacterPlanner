@@ -29,7 +29,7 @@ const UnitComparisonCard = (props) => {
       setCharacterLoaded(true);
     }
   }, [unit[0]])
-  useEffect(() => { 
+  useEffect(() => {
     setClassLoaded(false);
     if (unitClass.length == 1) {
       setHardCodedClass(unitClass[0]);
@@ -39,8 +39,7 @@ const UnitComparisonCard = (props) => {
   return (
     <div className='flex flex-row'>
       <div id="non-table-info" className='flex flex-col'>
-        <div id="char-and-class" className='flex flex-row justify-around'>
-          <div id="char-selector"><p>{character.name}</p></div>
+          
           {/* <select
             name="name"
             id="unitName"
@@ -54,18 +53,19 @@ const UnitComparisonCard = (props) => {
               ))
             }
           </select> */}
-          <div id="class-selector"><p>{character.class}</p></div>
-        </div>
         <div id="skills" className='flex flex-row'>
-          <div id="p-skill" className='flex flex-col'>
+          <div id="p-skill" className='flex flex-col justify-evenly'>
+          <div id="char-selector"><p>{character.name}</p></div>
             <div id="p-skill-name">{characterLoaded ? <p>{hardCodedCharacter.personalSkill.name}</p> : <p></p>}</div>
             <div id="p-skill-description">{characterLoaded ? <p className='flex'>{hardCodedCharacter.personalSkill.description}</p> : <p></p>}</div>
           </div>
-          <div id="class-skill" className='flex flex-col'>
+          <div id="class-skill" className='flex flex-col justify-evenly'>
+            <div id="class-selector"><p>{character.class}</p></div>
             <div id="class-skill-name">{classLoaded ? <p>{hardCodedClass.skill.name}</p> : <p></p>}</div>
             <div id="class-skill-description">{classLoaded ? <p className='flex'>{hardCodedClass.skill.description}</p> : <p></p>}</div>
           </div>
         </div>
+        <h3>Proficiencies:</h3>
         <table>
           <thead>
             <tr>
@@ -210,12 +210,12 @@ const UnitComparisonCard = (props) => {
                 <tr>
                   <td>Combined Caps: </td>
                   <td>{hardCodedCharacter.characterStatCap.str + hardCodedClass.classCap.str}</td>
-                  <td>{hardCodedCharacter.characterStatCap.str + hardCodedClass.classCap.mag}</td>
-                  <td>{hardCodedCharacter.characterStatCap.str + hardCodedClass.classCap.dex}</td>
-                  <td>{hardCodedCharacter.characterStatCap.str + hardCodedClass.classCap.spd}</td>
-                  <td>{hardCodedCharacter.characterStatCap.str + hardCodedClass.classCap.def}</td>
-                  <td>{hardCodedCharacter.characterStatCap.str + hardCodedClass.classCap.res}</td>
-                  <td>{hardCodedCharacter.characterStatCap.str + hardCodedClass.classCap.lck}</td>
+                  <td>{hardCodedCharacter.characterStatCap.mag + hardCodedClass.classCap.mag}</td>
+                  <td>{hardCodedCharacter.characterStatCap.dex + hardCodedClass.classCap.dex}</td>
+                  <td>{hardCodedCharacter.characterStatCap.spd + hardCodedClass.classCap.spd}</td>
+                  <td>{hardCodedCharacter.characterStatCap.def + hardCodedClass.classCap.def}</td>
+                  <td>{hardCodedCharacter.characterStatCap.res + hardCodedClass.classCap.res}</td>
+                  <td>{hardCodedCharacter.characterStatCap.lck + hardCodedClass.classCap.lck}</td>
                   <td>{hardCodedCharacter.characterStatCap.total + hardCodedClass.classCap.total}</td>
                 </tr> : <tr></tr>
             }
