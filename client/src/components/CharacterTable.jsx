@@ -51,8 +51,8 @@ const CharacterTable = () => {
                                 <td>{character.bld}</td>
                                 <td>{character.internalLevel}</td>
                                 <td>{character.level}</td>
-                                <td><Link id='info'className='btn btn-secondary text-white' to={`character/${character._id}/details`}>More Info</Link></td>
-                                <td><Link id='edit'className='btn btn-secondary text-white' to={`character/${character._id}/edit`}>Edit {character.name}</Link></td>
+                                <td><Link id='info'className='text-xs rounded-md bg-gray-400 text-white p-0.5' to={`character/${character._id}/details`}>More Info</Link></td>
+                                <td><Link id='edit'className='text-sm rounded-md bg-gray-400 text-white p-0.5' to={`character/${character._id}/edit`}>Edit {character.name}</Link></td>
                             </tr>
                         ))
                     }
